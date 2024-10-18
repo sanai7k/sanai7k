@@ -1,3 +1,13 @@
+進捗メモ
+=
+
 ## 10/18
- - 共鳴振動数は日本です。
- - today is to day
+ - gitとgithubの設定
+    - gitの設定(wsl)
+      - git init       (←初回だけ)
+      - git add -A
+      - git commit -m"任意のコミットメッセージ"
+      - git remote add origin https://github.com/お前のアカウント名/お前のレポジトリ名       (←初回だけ)
+      - git push origin HEAD
+      - これらは紐付けたいrepositoryの位置で行う
+      
