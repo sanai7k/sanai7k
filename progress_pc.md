@@ -63,7 +63,7 @@
   ```
   gem install rake
   ```
-  で入れてあげる。
+  で入れてあげる。[参考](https://b1nary.hatenablog.com/entry/2017/10/06/175642)
 #### gphysについて
 代替の可能性がありそうな、netcdf可視化ツール
 - [ncvis](https://github.com/SEATStandards/ncvis)
