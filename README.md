@@ -1,5 +1,8 @@
 進捗メモ
 =
+## 10/19
+git及びgithubの諸々について
+
 ## 10/18
 git及びgithubの設定と、gphysの導入
 - gitとgithubの設定
