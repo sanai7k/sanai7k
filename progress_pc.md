@@ -2,6 +2,20 @@
 =
 ## 10/19
 git及びgithubの諸々について
+- README.mdだとプロフィールに進捗が掲載される問題
+  - ユーザーレポジトリ内のREADME.mdは掲載されるので、ファイル名を変更
+    - 方法１(推奨)
+      ```
+      git mv old_filename.md new_filename.md #ローカル上でファイル名変更
+      git commit -m "Rename old_filename.md to new_filename.md" #変更をcommit
+      git push origin master #変更をpush
+      ```
+    - 方法２
+      githubで名称変更し
+      ```
+      git pull origin master #変更をpull
+      ```
+      その後、localの名称を手動で変更
 
 ## 10/18
 git及びgithubの設定と、gphysの導入
