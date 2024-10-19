@@ -50,7 +50,7 @@ git及びgithubの設定と、gphysの導入
          → 解決策は、回答の通りだと難しいので、rubyのバージョンを2.2.0に下げて、bundle installを実行した。
          → bundlerを使うとgphysがはいらないので、gem installした
          → 起動成功
-## 雑記メモ
+## コマンドまとめ
 - ubuntuのコマンドまとめ
   - ```bundle install --verbose```
    bundlerがインストールの際に行っている処理を詳細に表示させるoption
@@ -69,6 +69,6 @@ git及びgithubの設定と、gphysの導入
     - 新しいバージョンの gem に対応できるようにする。
     - 以下ではzコマンドを使えるようにした
       ``` git clone https://github.com/rupa/z.git ~/z```
-- コンピュータに関する雑記
+## コンピュータに関する雑記
   - 広義コンパイラと狭義コンパイラがある
    プリプロセッサ、狭義コンパイラ、アセンブラ、リンカのまとまりが広義コンパイラという
