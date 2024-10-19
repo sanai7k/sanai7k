@@ -16,7 +16,35 @@ git及びgithubの諸々について
       git pull origin master #変更をpull
       ```
       その後、localの名称を手動で変更
-
+- new_file.mdの追加
+  - wslの該当dir内で
+    ```
+    touch new_file.md #ファイル作成
+    git add new_file.md #変更をステージ
+    git commit -m "Add new_file.md" #変更をcommit
+    git push origin master #変更をpush
+    ```
+- ローカルとリモート間の更新差が生じた場合
+  - 以下のエラーについて
+    ```
+    ! [rejected]        HEAD -> master (non-fast-forward)
+    error: failed to push some refs to 'https://github.com/sanai7k/sanai7k.git'
+    ```
+    ローカル上で、リモートの変更をpullしてからpush
+    ```
+    git pull origin master  
+    git push origin master
+    ```
+  - 上記のpullで以下のエラーが出るとき
+    ```
+    fatal: Need to specify how to reconcile divergent branches.
+    ```
+    エラーには、リモートとローカルのmasterブランチの間に差異があり、どのように統合するかを指定する必要がある
+    マージを利用して解消
+    ```
+    git pull --no-rebase origin master
+    ```
+    これでconflictが起きなければ、pushできる
 ## 10/18
 git及びgithubの設定と、gphysの導入
 - gitとgithubの設定
