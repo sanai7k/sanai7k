@@ -1,5 +1,15 @@
 進捗メモ
 =
+## 10/21
+#### C言語
+- 変数の寿命、配列、for文の復習、文字列の扱い
+  - global,local,static-localによって適用範囲が異なる
+  - local > globalである
+- 配列を用いれば複数の変数をまとめて扱える
+- for文はloop命令
+  - for (始点;終点;始点から終点までの変化法)
+- 文字列は扱いが厄介
+  - 場合によって新たなヘッダーファイルをincludeする
 ## 10/19
 #### git及びgithubの諸々について
 - README.mdだとプロフィールに進捗が掲載される問題
@@ -45,6 +55,7 @@
     git pull --no-rebase origin master
     ```
     これでconflictが起きなければ、pushできる
+
 #### rubyについて
 - [依存関係を調べられるサイト](https://rubygems.org/gems/gphys/versions/1.5.6/dependencies)
 - エラー例
@@ -59,21 +70,31 @@
   Gem files will remain installed in /var/lib/gems/2.3.0/gems/rainbow-2.2.2 for inspection.
   Results logged to /var/lib/gems/2.3.0/extensions/x86_64-linux/2.3.0/rainbow-2.2.2/gem_make.out
   ```
+
   No such fileの文からrakeなるgemがないことがわかるので
+
   ```
   gem install rake
   ```
+
   で入れてあげる。[参考](https://b1nary.hatenablog.com/entry/2017/10/06/175642)
+
 #### gphysについて
+
 代替の可能性がありそうな、netcdf可視化ツール
+
 - [ncvis](https://github.com/SEATStandards/ncvis)
 - [panoply](https://www.giss.nasa.gov/tools/panoply/)
+
 ## 10/18
+
 #### git及びgithubの設定と、gphysの導入
+
 - gitとgithubの設定
   - gitとは
    差分管理システムで、簡単に言うと過去の変更履歴を保持してくれる
   - gitの設定(wsl)
+
     - ```
       git init (初回のみ)
       git add -A
@@ -82,10 +103,12 @@
       git push origin HEAD
       これらは紐付けたいrepositoryの位置で行う
     - gitconfigに
+
       ```
       git config user.name  < my name >
       git config user.email < my email >
       ```
+
       を加える。
     - 403errorが出たら```git config credential.helper```を入力。[参考](https://qiita.com/mtc465/items/c2e8472f797e9f5bbc43)
   - githubの設定(web登録)
@@ -100,8 +123,8 @@
   - bundlerを導入して、適切な依存関係のパッケージを導入できるようにした
     (追記 1019) [bundler,Gemfileについて](https://qiita.com/nishina555/items/1b343d368c5ecec6aecf)
   - Gemfileに以下を記述
-      source "https://rubygems.org"
-      gem 'hdf5' 
+      source "<https://rubygems.org>"
+      gem 'hdf5'
       gem 'gphys', '1.5.6'
       ~~gem 'ruby-netcdf'~~　#これはgphysに入っているので不要
       gem 'numo-narray'
@@ -121,12 +144,14 @@
         - ```cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics```
          → cc1はCのプリプロセッサかつ狭義コンパイラ
         - 結論: cc1(gcc)のバージョンが問題か
-         参考: [Githubのこの件と同じ質問](https://github.com/SciRuby/rb-gsl/issues/69) 
+         参考: [Githubのこの件と同じ質問](https://github.com/SciRuby/rb-gsl/issues/69)
          → 参考サイトの回答に[Ruby3 compatibility](https://github.com/SciRuby/rb-gsl/pull/66)があり、開くと  Changes EXTERN to externと書かれていた。
          → 解決策は、回答の通りだと難しいので、rubyのバージョンを2.2.0に下げて、bundle installを実行した。
          → bundlerを使うとgphysがはいらないので、gem installした
          → 起動成功
+
 ## コマンドまとめ
+
 - ubuntuのコマンドまとめ
   - ```bundle install --verbose```
    bundlerがインストールの際に行っている処理を詳細に表示させるoption
@@ -144,7 +169,9 @@
     - 新しい機能やバグ修正を含んだ最新のRubyGems を利用できるようにする。
     - 新しいバージョンの gem に対応できるようにする。
     - 以下ではzコマンドを使えるようにした
-      ``` git clone https://github.com/rupa/z.git ~/z```
+      ```git clone https://github.com/rupa/z.git ~/z```
+
 ## コンピュータに関する雑記
-  - 広義コンパイラと狭義コンパイラがある
+
+- 広義コンパイラと狭義コンパイラがある
    プリプロセッサ、狭義コンパイラ、アセンブラ、リンカのまとまりが広義コンパイラという
