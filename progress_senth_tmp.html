@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>progress_senth.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%E9%80%B2%E6%8D%97%E3%83%A1%E3%83%A2">進捗メモ</h1>
+<h2 id="1021">10/21</h2>
+<h4 id="c%E8%A8%80%E8%AA%9E">C言語</h4>
+<ul>
+<li>変数の寿命、配列、for文の復習、文字列の扱い
+<ul>
+<li>global,local,static-localによって適用範囲が異なる</li>
+<li>local &gt; globalである</li>
+</ul>
+</li>
+<li>配列を用いれば複数の変数をまとめて扱える</li>
+<li>for文はloop命令
+<ul>
+<li>for (始点;終点;始点から終点までの変化法)</li>
+</ul>
+</li>
+<li>文字列は扱いが厄介
+<ul>
+<li>場合によって新たなヘッダーファイルをincludeする</li>
+</ul>
+</li>
+</ul>
+<h2 id="1019">10/19</h2>
+<h4 id="git%E5%8F%8A%E3%81%B3github%E3%81%AE%E8%AB%B8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">git及びgithubの諸々について</h4>
+<ul>
+<li>README.mdだとプロフィールに進捗が掲載される問題
+<ul>
+<li>ユーザーレポジトリ内のREADME.mdは掲載されるので、ファイル名を変更
+<ul>
+<li>方法１(推奨)<pre class="hljs"><code><div>git mv old_filename.md new_filename.md #ローカル上でファイル名変更
+git commit -m &quot;Rename old_filename.md to new_filename.md&quot; #変更をcommit
+git push origin master #変更をpush
+</div></code></pre>
+</li>
+<li>方法２
+githubで名称変更し<pre class="hljs"><code><div>git pull origin master #変更をpull
+</div></code></pre>
+その後、localの名称を手動で変更</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>new_file.mdの追加
+<ul>
+<li>wslの該当dir内で<pre class="hljs"><code><div>touch new_file.md #ファイル作成
+git add new_file.md #変更をステージ
+git commit -m &quot;Add new_file.md&quot; #変更をcommit
+git push origin master #変更をpush
+</div></code></pre>
+</li>
+</ul>
+</li>
+<li>ローカルとリモート間の更新差が生じた場合
+<ul>
+<li>以下のエラーについて<pre class="hljs"><code><div>! [rejected]        HEAD -&gt; master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/sanai7k/sanai7k.git'
+</div></code></pre>
+ローカル上で、リモートの変更をpullしてからpush<pre class="hljs"><code><div>git pull origin master  
+git push origin master
+</div></code></pre>
+</li>
+<li>上記のpullで以下のエラーが出るとき<pre class="hljs"><code><div>fatal: Need to specify how to reconcile divergent branches.
+</div></code></pre>
+エラーには、リモートとローカルのmasterブランチの間に差異があり、どのように統合するかを指定する必要がある
+マージを利用して解消<pre class="hljs"><code><div>git pull --no-rebase origin master
+</div></code></pre>
+これでconflictが起きなければ、pushできる</li>
+</ul>
+</li>
+</ul>
+<h4 id="ruby%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">rubyについて</h4>
+<ul>
+<li>
+<p><a href="https://rubygems.org/gems/gphys/versions/1.5.6/dependencies">依存関係を調べられるサイト</a></p>
+</li>
+<li>
+<p>エラー例</p>
+<pre class="hljs"><code><div>Building native extensions. This could take a while...
+ERROR: Error installing zsteg:
+ERROR: Failed to build gem native extension.
+(中略)
+RUBYLIBDIR=/var/lib/gems/2.3.0/extensions/x86_64-linux/2.3.0/rainbow-2.2.2
+/usr/bin/ruby2.3: No such file or directory -- /usr/share/rubygems-integration/all/gems/rake-12.0.0/exe/rake(LoadError)
+rake failed, exit code 1
+Gem files will remain installed in /var/lib/gems/2.3.0/gems/rainbow-2.2.2 for inspection.
+Results logged to /var/lib/gems/2.3.0/extensions/x86_64-linux/2.3.0/rainbow-2.2.2/gem_make.out
+</div></code></pre>
+<p>No such fileの文からrakeなるgemがないことがわかるので</p>
+<pre class="hljs"><code><div>gem install rake
+</div></code></pre>
+<p>で入れてあげる。<a href="https://b1nary.hatenablog.com/entry/2017/10/06/175642">参考</a></p>
+</li>
+</ul>
+<h4 id="gphys%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">gphysについて</h4>
+<p>代替の可能性がありそうな、netcdf可視化ツール</p>
+<ul>
+<li><a href="https://github.com/SEATStandards/ncvis">ncvis</a></li>
+<li><a href="https://www.giss.nasa.gov/tools/panoply/">panoply</a></li>
+</ul>
+<h2 id="1018">10/18</h2>
+<h4 id="git%E5%8F%8A%E3%81%B3github%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%81%A8gphys%E3%81%AE%E5%B0%8E%E5%85%A5">git及びgithubの設定と、gphysの導入</h4>
+<ul>
+<li>gitとgithubの設定
+<ul>
+<li>
+<p>gitとは
+差分管理システムで、簡単に言うと過去の変更履歴を保持してくれる</p>
+</li>
+<li>
+<p>gitの設定(wsl)</p>
+<ul>
+<li>
+<pre class="hljs"><code><div>git init (初回のみ)
+git add -A
+git commit -c&quot;任意のコミットメッセージ&quot;
+git remote add origin https://github.com/お前のアカウント名/お前のレポジトリ名(初回だけ)
+git push origin HEAD
+これらは紐付けたいrepositoryの位置で行う
+</div></code></pre>
+</li>
+<li>
+<p>gitconfigに</p>
+<pre class="hljs"><code><div>git config user.name  &lt; my name &gt;
+git config user.email &lt; my email &gt;
+</div></code></pre>
+<p>を加える。</p>
+</li>
+<li>
+<p>403errorが出たら<code>git config credential.helper</code>を入力。<a href="https://qiita.com/mtc465/items/c2e8472f797e9f5bbc43">参考</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>githubの設定(web登録)</p>
+<ul>
+<li>user nameとpassを設定</li>
+</ul>
+</li>
+<li>
+<p>留意事項
+.mdファイルは任意のエディタで作ってよい(現在、vimとemacsだとなぜかクラッシュする)
+~/gitの中に.mdファイルを記述し、git設定の項に従って更新
+この際、user nameとpassが要求される
+ここでのpassはgithubの設定で生成するpersonal access tokenで、権限付与が必要(一旦repoのみ付与した)</p>
+</li>
+</ul>
+</li>
+<li>rubyの環境構築
+<ul>
+<li>rbenvを導入して、複数のバージョンのrubyを利用できるようにした</li>
+<li>bundlerを導入して、適切な依存関係のパッケージを導入できるようにした
+(追記 1019) <a href="https://qiita.com/nishina555/items/1b343d368c5ecec6aecf">bundler,Gemfileについて</a></li>
+<li>Gemfileに以下を記述
+source &quot;<a href="https://rubygems.org">https://rubygems.org</a>&quot;
+gem 'hdf5'
+gem 'gphys', '1.5.6'
+<s>gem 'ruby-netcdf'</s>　#これはgphysに入っているので不要
+gem 'numo-narray'</li>
+</ul>
+</li>
+<li>gphys導入(wsl)について
+<ul>
+<li>gphysはrubyで作られている</li>
+<li>rubyの環境構築とnetcdf、hdf5というファイル形式をrubyで扱えるようにする必要がある
+<ul>
+<li>HDF5 : Hierarchical Data Format</li>
+<li>netCDF : Network Common Data Form</li>
+</ul>
+</li>
+<li>発生した問題と解決策
+<ul>
+<li>gemをupdateしたあと、bundle installを実行すると以下のエラーが発生
+<code>missing required library to compile this module: No such file or directory - gsl-config *** extconf.rb failed ***</code>
+<ul>
+<li><code>sudo apt install libgsl-dev</code>でgslを手動で入手</li>
+</ul>
+</li>
+<li>再度bundle installすると、エラーが発生
+<ul>
+<li>エラーを見るとC言語まわりの記述みられており、なんらかのパッケージの中身と思われる。一例として
+<ul>
+<li><code>include/rb_gsl_array.h:57:1: error: unknown type name ‘EXTERN’ 57 | EXTERN VALUE cgsl_matrix_complex_view_ro;</code>
+→ 現行のC言語にはexternはあるがEXTERNはなく、過去に存在</li>
+<li><code>cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics</code>
+→ cc1はCのプリプロセッサかつ狭義コンパイラ</li>
+<li>結論: cc1(gcc)のバージョンが問題か
+参考: <a href="https://github.com/SciRuby/rb-gsl/issues/69">Githubのこの件と同じ質問</a>
+→ 参考サイトの回答に<a href="https://github.com/SciRuby/rb-gsl/pull/66">Ruby3 compatibility</a>があり、開くと  Changes EXTERN to externと書かれていた。
+→ 解決策は、回答の通りだと難しいので、rubyのバージョンを2.2.0に下げて、bundle installを実行した。
+→ bundlerを使うとgphysがはいらないので、gem installした
+→ 起動成功</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%BE%E3%81%A8%E3%82%81">コマンドまとめ</h2>
+<ul>
+<li>ubuntuのコマンドまとめ
+<ul>
+<li><code>bundle install --verbose</code>
+bundlerがインストールの際に行っている処理を詳細に表示させるoption</li>
+<li><code>gem uninstall -I -a -x --user-install --force</code>
+gemをアンインストールするコマンドに
+<ul>
+<li><code>-I</code>:依存関係を無視する</li>
+<li><code>-a</code>:複数のバージョンがあればすべて</li>
+<li><code>-x</code>:gemによってインストールされた実行可能ファイル(バイナリ)も含める</li>
+<li><code>--user-install</code>:ユーザーローカルにインストールされたgemのみに対象を絞る</li>
+<li><code>--force</code>:強制</li>
+</ul>
+</li>
+<li><code>bundle install --redownload</code>
+既にキャッシュされているgemを無視してすべてのgemをダウンロードする。破損等の上書き。</li>
+<li><code>gem update --system</code>
+<ul>
+<li>RubyGems のバージョンを最新のものにする。</li>
+<li>新しい機能やバグ修正を含んだ最新のRubyGems を利用できるようにする。</li>
+<li>新しいバージョンの gem に対応できるようにする。</li>
+<li>以下ではzコマンドを使えるようにした
+<code>git clone https://github.com/rupa/z.git ~/z</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E9%9B%91%E8%A8%98">コンピュータに関する雑記</h2>
+<ul>
+<li>広義コンパイラと狭義コンパイラがある
+プリプロセッサ、狭義コンパイラ、アセンブラ、リンカのまとまりが広義コンパイラという</li>
+</ul>
+
+</body>
+</html>
