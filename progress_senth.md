@@ -1,5 +1,44 @@
 進捗メモ
+
 =
+## 10/29
+- Python
+  - how to define function
+	- 
+	```
+	def func_name(argument)
+	```
+	で
+	
+## 10/24
+emacs setting
+- no window modeで処理落ちやクラッシュの問題は未解決
+- window modeで日本語が文字化けする理由はxming側の問題だった
+  - ``` sudo apt-get install xfonts-intl-japanese```で解決
+## 10/22
+emacsの設定、pythonの基本プログラム、gphys周りの整備
+#### emacsの設定
+- `emacs .emacs &`でemacsの設定ファイルを開き、
+  - ```
+    (setq␣initial-frame-alist
+    (append␣(list
+              ‘(width␣.␣80)
+              ‘(height␣.␣55)
+              )
+      initial-frame-alist))
+    (setq␣default-frame-alist␣initial-frame-alist)
+    ```
+    を追加することで、起動時のdefaultのwindowサイズを変更
+#### emacs,vimでmd fileを編集するとクラッシュする問題
+- intuition: if edit in japanese, they'll be crashed.
+- 直感：日本語で編集するとクラッシュする。
+  - 最終的な結論は、この文章を書いている途中でクラッシュしなければ、xmingの設定でフォントサポートができていなかったこと。
+  - xmingはGUI利用のためのソフトウェアであり、emacs等を-nw optionなしに起動すると開くGUIのwindowはxmingを利用している
+  
+- pythonについて
+  - 
+- gphys周りの整備
+  - gslなるlibraryをrubyで呼び出せるようにrb-gslをgem installした。
 ## 10/21
 #### C言語
 変数の寿命、配列、文字列、アドレス、ポインタについて
@@ -193,7 +232,11 @@
     - 新しいバージョンの gem に対応できるようにする。
     - 以下ではzコマンドを使えるようにした
       ```git clone https://github.com/rupa/z.git ~/z```
-
+  - ```dpkg -l|grep paclage_name```
+    - ```dpkg```:debian packageの意、パッケージに関することをする 
+    - ```-l```:list
+    - ```|```:パイプ、前のコマンドの出力を次のコマンドの入力として渡すための記号
+    - ```grep```:テキスト検索ツール、後ろに入力した言葉を検索する
 ## コンピュータに関する雑記
 
 - 広義コンパイラと狭義コンパイラがある
