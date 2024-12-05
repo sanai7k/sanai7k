@@ -1,42 +1,60 @@
 進捗メモ
+## 11/12
+- pythonの環境構築について
+  - pipがつかえない、numpyもはいらない謎の状況になっっていた
+    - dir 3a_ncmにbenvを作成しpipとmatplotlibを入れてみる
+    - sourceを忘れずに
+    - rye, uvを入れてみたい
+- python programing
+  matplotlibを用いたグラフ描画
+  - 基本構文
+  ```
+  
+
+
 
 =
-## 10/29
+## 11/07
+- [モジュールとパッケージの違い](https://zenn.dev/delacroix/articles/e3f62ca001deb0)
+- JRA55とJRA3Qの違いを確認する
+  同じデータについて参照先を変更すればそれぞれの場合について描画でき、見比べることができる
+  データによっては重ねてより違いがわかりやすくできるのかも？
+- 温度風シアー方程式が成り立っていることの確認
+  計算としては微分をどう表現するかが課題点
+  - T_{j+1} - T_{j-1} / 2 \Delta y
+	のようにして近い表現をする
+  - 計算すれば両辺が近い値であることは確認できるはずだが、それをどういうふうにして可視化するのか？
+## 10/31
 - Python
-  - how to define function
-	- 
+  - how to define function 
 	```
 	def func_name(argument)
 	```
-	で
-	
+	で設定。
+- vscode
 ## 10/24
 emacs setting
 - no window modeで処理落ちやクラッシュの問題は未解決
-- window modeで日本語が文字化けする理由はxming側の問題だった
+- window modeで日本語が文字化けする理由はxming側の問題だったa
   - ``` sudo apt-get install xfonts-intl-japanese```で解決
 ## 10/22
 emacsの設定、pythonの基本プログラム、gphys周りの整備
 #### emacsの設定
 - `emacs .emacs &`でemacsの設定ファイルを開き、
-  - ```
-    (setq␣initial-frame-alist
+  - ```(setq␣initial-frame-alist
     (append␣(list
               ‘(width␣.␣80)
               ‘(height␣.␣55)
               )
       initial-frame-alist))
-    (setq␣default-frame-alist␣initial-frame-alist)
-    ```
+    (setq␣default-frame-alist␣initial-frame-alist)```
     を追加することで、起動時のdefaultのwindowサイズを変更
 #### emacs,vimでmd fileを編集するとクラッシュする問題
-- intuition: if edit in japanese, they'll be crashed.
-- 直感：日本語で編集するとクラッシュする。
-  - 最終的な結論は、この文章を書いている途中でクラッシュしなければ、xmingの設定でフォントサポートができていなかったこと。
-  - xmingはGUI利用のためのソフトウェアであり、emacs等を-nw optionなしに起動すると開くGUIのwindowはxmingを利用している
-  
-- pythonについて
-  - 
+- 日本語で編集するとクラッシュする。
+  - 未解決
+- emacs GUImode で文字化け
+  - xmingの設定でフォントサポートができていなかった
+  - xmingはGUI利用のためのソフトウェアであり、emacs等を-nw optionなしに起動すると開くGUIのwindowはxmingを利用している 
 - gphys周りの整備
   - gslなるlibraryをrubyで呼び出せるようにrb-gslをgem installした。
 ## 10/21
