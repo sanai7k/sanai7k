@@ -10,12 +10,6 @@ My academic background is in geophysical fluid dynamics, and I am currently shif
 - **Geophysical Fluid Dynamics (GFD)** and its numerical modeling
 - Scientific computing using **Julia**
 
-## 🛠️ Skills
-
-- **Programming languages**: C, Fortran, Julia, Python
-- **Topics of interest**: CFD, GFD, AMR, HPC, numerical methods
-- **Currently learning**: Parallel algorithms, numerical PDE solvers, and domain-specific optimization techniques
-
 ## 🔧 Current Work (Starting Soon)
 
 - Implementing basic fluid-related models (e.g., **diffusion equation**) to build simulation foundations
