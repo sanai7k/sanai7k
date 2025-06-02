@@ -1,17 +1,27 @@
 # Hello! I'm sanai
 
-Undergraduate student at Kyushu University, majoring in Atmospheric Fluid Dynamics.  
-Currently exploring numerical modeling, especially CFD, AMR, and GPU-based simulation.
+Undergraduate student at **Kyushu University**, majoring in **Atmospheric Fluid Dynamics**.  
+My academic background is in geophysical fluid dynamics, and I am currently shifting focus toward computational science, especially in the context of fluid modeling and simulation.
 
-## Skills
-- Programming: C, Fortran, Julia, Python
-- Areas of interest: CFD, GFD, AMR, HPC
-- Currently learning: Numerical methods, CFD, parallel computing, and more
+## 💡 Interests
 
-## Current Work (starting soon)
-- Implementing basic fluid-related models, such as the diffusion equation
-- Developing a 2D linear shallow water model to study Matsuno–Gill-type responses (in C++ or Julia)
-- Investigating AMR techniques for application to geophysical flows
+- **Computational Fluid Dynamics (CFD)**, with a particular focus on **Adaptive Mesh Refinement (AMR)**
+- **Parallel computing** and **GPU acceleration** for high-performance simulation
+- **Geophysical Fluid Dynamics (GFD)** and its numerical modeling
+- Scientific computing using **Julia**
+
+## 🛠️ Skills
+
+- **Programming languages**: C, Fortran, Julia, Python
+- **Topics of interest**: CFD, GFD, AMR, HPC, numerical methods
+- **Currently learning**: Parallel algorithms, numerical PDE solvers, and domain-specific optimization techniques
+
+## 🔧 Current Work (Starting Soon)
+
+- Implementing basic fluid-related models (e.g., **diffusion equation**) to build simulation foundations
+- Developing a **2D linear shallow water model** to study **Matsuno–Gill-type responses**, using C++ or Julia
+- Exploring **mass-conserving AMR techniques** for applications to large-scale geophysical flow simulations
+
 
 <!-- ## 📫 Contact
 - [GitHub Profile](https://github.com/your-username)
